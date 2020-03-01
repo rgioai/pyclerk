@@ -33,6 +33,10 @@ release = '0.0.1'
 extensions = [
 ]
 
+# Specify master_doc is index per sphinx-quickstart and not contents
+# Per https://github.com/readthedocs/readthedocs.org/issues/2569
+master_doc = 'index'
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
