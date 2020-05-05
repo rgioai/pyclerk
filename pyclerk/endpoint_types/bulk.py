@@ -1,0 +1,1 @@
+# FUTURE Add the BulkEndpoint class
