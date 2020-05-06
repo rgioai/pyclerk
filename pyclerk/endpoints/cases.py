@@ -1,17 +1,28 @@
 from ._endpoint import Endpoint
 
 class CasesEndpoint(Endpoint):
-    def __init__(self, access_token='abcd12345', api_version=1, body_format='text'):
+    def __init__(self, access_token: str = 'abcd12345', api_version: int = 1, body_format: str = 'text'):
+        """
+        Class for accessing the cases api endpoint.
+        :param access_token: Your Caselaw Access Project API token, if you have one.
+        :param api_version: API Version, stick with 1 for now
+        :param body_format: Desired case content output {text, xml, html}
+        """
         super().__init__(access_token, api_version, body_format)
         self.endpoint_url = self.base_url + 'cases'
 
-    def browse_search(self, parameters):
+    def browse_or_search_cases(self, parameters: dict) -> tuple:
+        """
+        API call to browse or search all available cases
+        :param parameters: dict of parameters to include in the API call
+        :return: tuple of (dict, APIResponse), or (dict, None) if no casebody data
+        """
         valid_parameters = {'name_abbreviation': str,
                             'decision_date_min': str,  # YYYY-MM-DD
                             'decision_date_max': str,  # YYYY-MM-DD
                             'docket_number': str,
                             'cite': str,
-                            'reqporter': int,
+                            'reporter': int,
                             'court': str,  # Future Enforce slug
                             'court_id': int,
                             'jurisdiction': str,  # Future Enforce slug
@@ -48,9 +59,12 @@ class CasesEndpoint(Endpoint):
         json_response, formatted_response = self.format_response(response.content)
         return json_response, formatted_response
 
-    def single_case(self, case_id, full_case=True):
+    def single_case(self, case_id: int, full_case: bool = True) -> tuple:
         """
-        'api.case.law/v1/cases/435800/?full_case=true
+        API Call to return a single case.
+        :param case_id: Caselaw Access Project ID of the desired case
+        :param full_case: True to return the case body, False to return only metadata
+        :return: tuple of (dict, APIResponse), or (dict, None) if no casebody data
         """
         assert(isinstance(full_case, bool))
         assert(int(case_id) > 0)

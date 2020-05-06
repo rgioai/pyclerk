@@ -3,32 +3,32 @@ import json
 
 from .response_formats import *
 
-from .endpoint_types.bulk import BulkEndpoint
-from .endpoint_types.cases import CasesEndpoint
-from .endpoint_types.citations import CitationsEndpoint
-from .endpoint_types.courts import CourtsEndpoint
-from .endpoint_types.jurisdictions import JurisdictionsEndpoint
-from .endpoint_types.ngrams import NgramsEndpoint
-from .endpoint_types.reporters import ReportersEndpoint
-from .endpoint_types.user_history import UserHistoryEndpoint
-from .endpoint_types.volumes import VolumesEndpoint
+from .endpoints.bulk import BulkEndpoint
+from .endpoints.cases import CasesEndpoint
+from .endpoints.citations import CitationsEndpoint
+from .endpoints.courts import CourtsEndpoint
+from .endpoints.jurisdictions import JurisdictionsEndpoint
+from .endpoints.ngrams import NgramsEndpoint
+from .endpoints.reporters import ReportersEndpoint
+from .endpoints.user_history import UserHistoryEndpoint
+from .endpoints.volumes import VolumesEndpoint
 
 # TODO Test packaging and downloading from PyPi test
 
 # TODO Add documentation
 
 """
-
+PyClerk package master file contains the master class.  Recommended to invoke all classes and methods through
+the PyClerk() class.
 """
 
 class PyClerk(object):
-    """PyClerk is the base class to use all the other methods and functions available in the module."""
-    def __init__(self, access_token='abcd12345', api_version=1, master_body_format='text'):
+    def __init__(self, access_token: str = 'abcd12345', api_version: int = 1, master_body_format: str = 'text'):
         """
-
-        :param access_token:
-        :param api_version:
-        :param master_body_format:
+        PyClerk master class. Invoke this first!
+        :param access_token: Your Caselaw Access Project API token, if you have one.
+        :param api_version: API Version, stick with 1 for now
+        :param body_format: Desired case content output {text, xml, html}
         """
         self.access_token = access_token
         self.api_version = api_version
@@ -50,18 +50,12 @@ class PyClerk(object):
 
         print("Pyclerk initiated")
 
-    def hello_world(self, name=None):
+    def set_master_body_format(self, new_format: str):
         """
-        Prints a welcome statement
-        :param name: optional string of someone to say hello to
+        Set a new desired case content output
+        :param new_format: {text, xml, html}
         :return: None
         """
-        if name is None:
-            print("Hello world!")
-        else:
-            print("Hello %s!" % str(name))
-
-    def set_master_body_format(self, new_format):
         if new_format not in ['text', 'xml', 'html']:
             raise ValueError("{} is not a valid data format, must be 'text', 'xml', or 'html'".format(new_format))
         else:
