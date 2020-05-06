@@ -5,7 +5,13 @@ from pyclerk.response_formats import *
 
 
 class Endpoint(object):
-    def __init__(self, access_token='abcd12345', api_version=1, body_format='text'):
+    def __init__(self, access_token: str = 'abcd12345', api_version: int = 1, body_format: str = 'text') -> object:
+        """
+
+        :param access_token:
+        :param api_version:
+        :param body_format:
+        """
         self.access_token = access_token
         self.api_version = api_version
         self.body_format = ''
@@ -29,7 +35,26 @@ class Endpoint(object):
             raise ValueError("{} is not a valid data format, must be 'text', 'xml', or 'html'".format(self.body_format))
         return body_format
 
+    def make_valid_url(self, string):
+        string = string.replace(' ', '%20')
+        # FUTURE Add corrections for all incompatible characters
+        # Could consider a library like python-slugify
+        return string
+
+    def validate_date(self, string):
+        try:
+            assert(len(string) == 10)
+            assert(1000 < int(string[:4]) < 2100)
+            assert(string[4] == '-')
+            assert(string[7] == '-')
+            assert(0 < int(string[5:7]) < 12)
+            assert (0 < int(string[8:]) < 32)
+        except Exception:
+            raise ValueError('Invalid date {} must conform to YYYY-MM-DD'.format(string))
+
+
     def send_request(self, url):
+        url = self.make_valid_url(url)
         if self.access_token is None or self.access_token == 'abcd12345':
             response = requests.get(url)
         else:
@@ -57,3 +82,13 @@ class Endpoint(object):
             formatted_casebody = None
 
         return json_response, formatted_casebody
+
+    def get_next_page(self, json_response):
+        url = json_response['next']
+        response = self.send_request(url)
+        return self.format_response(response)
+
+    def get_prev_page(self, json_response):
+        url = json_response['previous']
+        response = self.send_request(url)
+        return self.format_response(response)

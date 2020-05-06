@@ -11,7 +11,7 @@ class TextBody(APIResponse):
         self.raw_response_body = response
         self.response_body = response['data']
 
-        # FUTURE Implement special text body handling
+        # FUTURE Implement further special text body handling
 
 class XMLBody(APIResponse):
     def __init__(self, response):

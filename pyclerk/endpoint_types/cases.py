@@ -7,22 +7,46 @@ class CasesEndpoint(Endpoint):
 
     def browse_search(self, parameters):
         valid_parameters = {'name_abbreviation': str,
-                            'decision_date_min': 'YYYY-MM-DD',
-                            'decision_date_max': 'YYYY-MM-DD',
+                            'decision_date_min': str,  # YYYY-MM-DD
+                            'decision_date_max': str,  # YYYY-MM-DD
                             'docket_number': str,
                             'cite': str,
-                            'reporter': int,
-                            'court': str,  # TODO Change to special datatype slug }
+                            'reqporter': int,
+                            'court': str,  # Future Enforce slug
                             'court_id': int,
-                            'jurisdiction': str,  # TODO Change to special datatype slug }
+                            'jurisdiction': str,  # Future Enforce slug
                             'search': str,
-                            'cursor': str,
-                            'ordering': str  # TODO Must be a field name above
+                            'ordering': str  # Must be a field name above
                             }
 
-        # TODO Validate parameters
+        # Validate parameters
+        # FUTURE May consider elevating this to a function of the Endpoint parent class
+        for parameter in parameters.keys():
+            if parameter not in valid_parameters.keys():
+                raise ValueError('{} is not a valid parameter'.format(parameter))
+            if type(parameters[parameter]) != valid_parameters[parameter]:
+                raise ValueError('{} must be type {}, found {} instead'.format(parameter,
+                                                                               type(parameters[parameter]),
+                                                                               valid_parameters[parameter]))
+            if '_date_' in parameter:
+                self.validate_date(parameters[parameter])
 
-        return ''
+            if parameter == 'ordering' and parameters[parameter] not in valid_parameters.keys():
+                raise ValueError('Value to order on must be a valid parameter. {} is not valid.'.
+                                 format(parameters[parameter]))
+
+            # FUTURE Add additional parameter validations
+
+        # Create URL
+        url = '{}/?'.format(self.endpoint_url)
+        for parameter in parameters.keys():
+            add_string = '{}={}&'.format(parameter, parameters[parameter])
+            url = url + add_string
+        url = url[:-1]  # Drop the trailing '&'
+
+        response = self.send_request(url)
+        json_response, formatted_response = self.format_response(response.content)
+        return json_response, formatted_response
 
     def single_case(self, case_id, full_case=True):
         """
