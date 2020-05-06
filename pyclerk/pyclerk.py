@@ -15,8 +15,6 @@ from .endpoints.volumes import VolumesEndpoint
 
 # TODO Test packaging and downloading from PyPi test
 
-# TODO Add documentation
-
 """
 PyClerk package master file contains the master class.  Recommended to invoke all classes and methods through
 the PyClerk() class.
