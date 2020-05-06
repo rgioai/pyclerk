@@ -13,16 +13,18 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
+
+master_doc = 'index'
 
 project = 'PyClerk'
 copyright = '2020, Ryan Giarusso'
 author = 'Ryan Giarusso'
 
 # The full version, including alpha/beta/rc tags
-release = 'v0.1'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +33,12 @@ release = 'v0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx_rtd_theme"
 ]
+
+# Specify master_doc is index per sphinx-quickstart and not contents
+# Per https://github.com/readthedocs/readthedocs.org/issues/2569
+master_doc = 'index'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -40,8 +47,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
-master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 
