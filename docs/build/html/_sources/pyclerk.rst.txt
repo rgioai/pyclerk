@@ -12,11 +12,22 @@ Subpackages
 Submodules
 ----------
 
-.. toctree::
-   :maxdepth: 4
+pyclerk.pyclerk module
+----------------------
 
-   pyclerk.pyclerk
-   pyclerk.response_formats
+.. automodule:: pyclerk.pyclerk
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyclerk.response\_formats module
+--------------------------------
+
+.. automodule:: pyclerk.response_formats
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

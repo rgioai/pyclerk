@@ -82,7 +82,16 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">pyclerk.endpoints package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.bulk">pyclerk.endpoints.bulk module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.cases">pyclerk.endpoints.cases module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.citations">pyclerk.endpoints.citations module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.courts">pyclerk.endpoints.courts module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.jurisdictions">pyclerk.endpoints.jurisdictions module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.ngrams">pyclerk.endpoints.ngrams module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.reporters">pyclerk.endpoints.reporters module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.user_history">pyclerk.endpoints.user_history module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints.volumes">pyclerk.endpoints.volumes module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.endpoints">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -153,22 +162,107 @@
 <h1>pyclerk.endpoints package<a class="headerlink" href="#pyclerk-endpoints-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.bulk.html">pyclerk.endpoints.bulk module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.cases.html">pyclerk.endpoints.cases module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.citations.html">pyclerk.endpoints.citations module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.courts.html">pyclerk.endpoints.courts module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.jurisdictions.html">pyclerk.endpoints.jurisdictions module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.ngrams.html">pyclerk.endpoints.ngrams module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.reporters.html">pyclerk.endpoints.reporters module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.user_history.html">pyclerk.endpoints.user_history module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.volumes.html">pyclerk.endpoints.volumes module</a></li>
-</ul>
 </div>
+<div class="section" id="module-pyclerk.endpoints.bulk">
+<span id="pyclerk-endpoints-bulk-module"></span><h2>pyclerk.endpoints.bulk module<a class="headerlink" href="#module-pyclerk.endpoints.bulk" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.bulk.BulkEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.bulk.</code><code class="sig-name descname">BulkEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.bulk.BulkEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyclerk.endpoints.cases">
+<span id="pyclerk-endpoints-cases-module"></span><h2>pyclerk.endpoints.cases module<a class="headerlink" href="#module-pyclerk.endpoints.cases" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.cases.CasesEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.cases.</code><code class="sig-name descname">CasesEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.cases.CasesEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+<dl class="py method">
+<dt id="pyclerk.endpoints.cases.CasesEndpoint.browse_or_search_cases">
+<code class="sig-name descname">browse_or_search_cases</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#pyclerk.endpoints.cases.CasesEndpoint.browse_or_search_cases" title="Permalink to this definition">¶</a></dt>
+<dd><p>API call to browse or search all available cases
+:param parameters: dict of parameters to include in the API call
+:return: tuple of (dict, APIResponse), or (dict, None) if no casebody data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pyclerk.endpoints.cases.CasesEndpoint.single_case">
+<code class="sig-name descname">single_case</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">case_id</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">full_case</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#pyclerk.endpoints.cases.CasesEndpoint.single_case" title="Permalink to this definition">¶</a></dt>
+<dd><p>API Call to return a single case.
+:param case_id: Caselaw Access Project ID of the desired case
+:param full_case: True to return the case body, False to return only metadata
+:return: tuple of (dict, APIResponse), or (dict, None) if no casebody data</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.citations">
+<span id="pyclerk-endpoints-citations-module"></span><h2>pyclerk.endpoints.citations module<a class="headerlink" href="#module-pyclerk.endpoints.citations" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.citations.CitationsEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.citations.</code><code class="sig-name descname">CitationsEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.citations.CitationsEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.courts">
+<span id="pyclerk-endpoints-courts-module"></span><h2>pyclerk.endpoints.courts module<a class="headerlink" href="#module-pyclerk.endpoints.courts" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.courts.CourtsEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.courts.</code><code class="sig-name descname">CourtsEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.courts.CourtsEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.jurisdictions">
+<span id="pyclerk-endpoints-jurisdictions-module"></span><h2>pyclerk.endpoints.jurisdictions module<a class="headerlink" href="#module-pyclerk.endpoints.jurisdictions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.jurisdictions.JurisdictionsEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.jurisdictions.</code><code class="sig-name descname">JurisdictionsEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.jurisdictions.JurisdictionsEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.ngrams">
+<span id="pyclerk-endpoints-ngrams-module"></span><h2>pyclerk.endpoints.ngrams module<a class="headerlink" href="#module-pyclerk.endpoints.ngrams" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.ngrams.NgramsEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.ngrams.</code><code class="sig-name descname">NgramsEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.ngrams.NgramsEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.reporters">
+<span id="pyclerk-endpoints-reporters-module"></span><h2>pyclerk.endpoints.reporters module<a class="headerlink" href="#module-pyclerk.endpoints.reporters" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.reporters.ReportersEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.reporters.</code><code class="sig-name descname">ReportersEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.reporters.ReportersEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.user_history">
+<span id="pyclerk-endpoints-user-history-module"></span><h2>pyclerk.endpoints.user_history module<a class="headerlink" href="#module-pyclerk.endpoints.user_history" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.user_history.UserHistoryEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.user_history.</code><code class="sig-name descname">UserHistoryEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.user_history.UserHistoryEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints.volumes">
+<span id="pyclerk-endpoints-volumes-module"></span><h2>pyclerk.endpoints.volumes module<a class="headerlink" href="#module-pyclerk.endpoints.volumes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.endpoints.volumes.VolumesEndpoint">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.endpoints.volumes.</code><code class="sig-name descname">VolumesEndpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.endpoints.volumes.VolumesEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.endpoints._endpoint.Endpoint</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk.endpoints">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyclerk.endpoints" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

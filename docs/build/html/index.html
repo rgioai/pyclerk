@@ -80,7 +80,14 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to PyClerk’s documentation!</a></li>
+<li><a class="reference internal" href="#">Welcome to PyClerk’s documentation!</a><ul>
+<li><a class="reference internal" href="#trying-out-pyclerk">Trying Out PyClerk</a></li>
+<li><a class="reference internal" href="#getting-more-advanced">Getting More Advanced</a></li>
+<li><a class="reference internal" href="#expanding-pyclerk">Expanding PyClerk</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#future-growth">Future Growth</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -148,7 +155,103 @@
             
   <div class="section" id="welcome-to-pyclerk-s-documentation">
 <h1>Welcome to PyClerk’s documentation!<a class="headerlink" href="#welcome-to-pyclerk-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+<p>Use python to access all U.S. caselaw through the Harvard Law School
+Library <a class="reference external" href="https://case.law">Caselaw Access Project</a>.</p>
+<p>PyClerk is a Python package that simplifies accessing the Caselaw Access
+Project’s Web API (CAPAPI). Its goal it to reduce the necessary overhead
+to accessing CAPAPI from reading their detailed but dense documentation
+to simply importing a python package and trying out a few lines of code.</p>
+<p>The current alpha version provides this simplicity for the Cases
+endpoint, especially for the single case API. While this is somewhat
+limited functionality compared to the full CAPAPI, this initial release
+will enable users to access the core data of CAP without leaving Python.</p>
+<div class="section" id="trying-out-pyclerk">
+<h2>Trying Out PyClerk<a class="headerlink" href="#trying-out-pyclerk" title="Permalink to this headline">¶</a></h2>
+<p>The the completed project is hosted on the <a class="reference external" href="https://www.pypi.org/project/pyclerk">Python Package Index
+(PyPi)</a>.</p>
+<p>Installing and trying PyClerk is easy. You’ll need Python 3 installed as
+well as its package manager ‘pip’. Some machines come with Python 2
+installed as default as an OS dependency. On these, you may need to
+replace <code class="docutils literal notranslate"><span class="pre">pip</span></code> in the instructions with <code class="docutils literal notranslate"><span class="pre">pip3</span></code>. In a terminal window,
+or in a python virtual environment if you prefer:</p>
+<ul>
+<li><p>install PyClerk: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyclerk</span></code></p></li>
+<li><p>start a Python console: <code class="docutils literal notranslate"><span class="pre">python3</span></code></p></li>
+<li><p>import pyclerk and create a PyClerk instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclerk</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">pyclerk</span><span class="o">.</span><span class="n">PyClerk</span><span class="p">()</span>
+<span class="n">json</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">single_case</span><span class="p">(</span><span class="mi">435800</span><span class="p">)</span>  <span class="c1"># This returns a specific case, with internal id # 435800</span>
+</pre></div>
+</div>
+</li>
+<li><p>the final command will return two data structures <code class="docutils literal notranslate"><span class="pre">json</span></code> and <code class="docutils literal notranslate"><span class="pre">body</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">json</span></code> is the content reply from the Caselaw Access Project API, assuming the API returns a valid status code. If it doesn’t, the appropriate error is raised. This contains case metadata as a json object, with the content of the case as an entry in this structure represented as a bytestring.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code> is the content of the case deparsed to be easier to manipulate in Python.</p></li>
+</ul>
+</div>
+<div class="section" id="getting-more-advanced">
+<h2>Getting More Advanced<a class="headerlink" href="#getting-more-advanced" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>from there, explore the <a class="reference external" href="https://pyclerk.readthedocs.io/en/latest/?">docs</a> to expand to include new parameters, new types of searches, and more!</p></li>
+<li><p>or, browse the <a class="reference external" href="https://api.case.law/v1/">CAPAPI root</a> to identify additional functionality that you need for your project.</p></li>
+<li><p>you can also interface directly with the API through PyClerk without using the custom functions or classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclerk</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">pyclerk</span><span class="o">.</span><span class="n">PyClerk</span><span class="p">()</span>
+<span class="c1"># Write out a custom API Query</span>
+<span class="n">custom</span>\<span class="n">_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.case.law/v1/YOUR CUSTOM REQUEST HERE&quot;</span>
+<span class="c1"># Send that request to CAPAPI and get a text response</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">custom</span>\<span class="n">_endpoint</span><span class="o">.</span><span class="n">send</span>\<span class="n">_request</span><span class="p">(</span><span class="n">custom</span>\<span class="n">_url</span><span class="p">)</span>
+<span class="c1"># Parse that response into json and a custom body class</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="expanding-pyclerk">
+<h2>Expanding PyClerk<a class="headerlink" href="#expanding-pyclerk" title="Permalink to this headline">¶</a></h2>
+<p>PyClerk is still under active development. That means you might
+find a bug or identify new functionality your project needs. The Caselaw
+Access Project might also update their API to a new version or change
+various functionality.</p>
+<ul class="simple">
+<li><p>If you find a bug, please file an issue
+<a class="reference external" href="https://github.com/rgioai/pyclerk/issues">here</a>.</p></li>
+<li><p>If you need a new feature, you can file a feature request as an
+issue, or you can go implement it yourself! Just fork the project,
+add the feature, and submit a pull-request. I’d love some help.</p></li>
+<li><p>If the problem is with the CAPAPI itself, please let them know
+<a class="reference external" href="https://github.com/harvard-lil/cap-examples/issues">here</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Documentation is super important to this project–the whole goal is ease
+of use for new coders. That requires good documentation!</p>
+<p>Rendered versions of documentation are available through
+<a class="reference external" href="https://pyclerk.readthedocs.io/en/latest/?">ReadTheDocs</a>. It
+includes both high-level descriptions and overviews (like the
+installation and first uses instructions above) and rendered versions of
+the docstrings that accompany the classes and functions in the package.</p>
+<p>To rebulid the documentation: - Generate latest raw API docs:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-apidoc</span> <span class="pre">-e</span> <span class="pre">-o</span> <span class="pre">docs/source</span> <span class="pre">pyclerk</span></code></p>
+<ul class="simple">
+<li><p>Build the docs: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="future-growth">
+<h2>Future Growth<a class="headerlink" href="#future-growth" title="Permalink to this headline">¶</a></h2>
+<p>The obvious case for future growth is the inclusion of all available
+endpoints, such as: - bulk - citations - courts - jurisdictions - ngrams
+- reporters - user_history - volumes - and any others CAP may choose to
+unveil.</p>
+<p>Additionally, as we better define the best uses for this kind of data,
+PyClerk should grow to include pipelines for processing the API data
+into formats users want most. This might be in line with some of the
+sample processing functions I’ve outlined, or it could be something
+endusers create that I could never have imagined.</p>
+<p>PyClerk will also probably need an update whenever CAP decides to move
+to v2 of their API.</p>
+<p>Areas in the source code ripe for expansion are marked with <code class="docutils literal notranslate"><span class="pre">#FUTURE</span></code>.</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">

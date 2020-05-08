@@ -83,7 +83,9 @@
 <li><a class="reference internal" href="#">pyclerk package</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-pyclerk.pyclerk">pyclerk.pyclerk module</a></li>
+<li><a class="reference internal" href="#module-pyclerk.response_formats">pyclerk.response_formats module</a></li>
+<li><a class="reference internal" href="#module-pyclerk">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -157,19 +159,17 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyclerk.endpoints.html">pyclerk.endpoints package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.bulk.html">pyclerk.endpoints.bulk module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.cases.html">pyclerk.endpoints.cases module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.citations.html">pyclerk.endpoints.citations module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.courts.html">pyclerk.endpoints.courts module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.jurisdictions.html">pyclerk.endpoints.jurisdictions module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.ngrams.html">pyclerk.endpoints.ngrams module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.reporters.html">pyclerk.endpoints.reporters module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.user_history.html">pyclerk.endpoints.user_history module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyclerk.endpoints.volumes.html">pyclerk.endpoints.volumes module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.bulk">pyclerk.endpoints.bulk module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.cases">pyclerk.endpoints.cases module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.citations">pyclerk.endpoints.citations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.courts">pyclerk.endpoints.courts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.jurisdictions">pyclerk.endpoints.jurisdictions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.ngrams">pyclerk.endpoints.ngrams module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.reporters">pyclerk.endpoints.reporters module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.user_history">pyclerk.endpoints.user_history module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints.volumes">pyclerk.endpoints.volumes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyclerk.endpoints.html#module-pyclerk.endpoints">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -177,15 +177,53 @@
 </div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.pyclerk.html">pyclerk.pyclerk module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyclerk.response_formats.html">pyclerk.response_formats module</a></li>
-</ul>
 </div>
+<div class="section" id="module-pyclerk.pyclerk">
+<span id="pyclerk-pyclerk-module"></span><h2>pyclerk.pyclerk module<a class="headerlink" href="#module-pyclerk.pyclerk" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.pyclerk.PyClerk">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.pyclerk.</code><code class="sig-name descname">PyClerk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">access_token</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'abcd12345'</span></em>, <em class="sig-param"><span class="n">api_version</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">master_body_format</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'text'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.pyclerk.PyClerk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="pyclerk.pyclerk.PyClerk.set_master_body_format">
+<code class="sig-name descname">set_master_body_format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_format</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.pyclerk.PyClerk.set_master_body_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new desired case content output
+:param new_format: {text, xml, html}
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyclerk.response_formats">
+<span id="pyclerk-response-formats-module"></span><h2>pyclerk.response_formats module<a class="headerlink" href="#module-pyclerk.response_formats" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pyclerk.response_formats.APIResponse">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.response_formats.</code><code class="sig-name descname">APIResponse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.response_formats.APIResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyclerk.response_formats.HTMLBody">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.response_formats.</code><code class="sig-name descname">HTMLBody</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.response_formats.HTMLBody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyclerk.response_formats.APIResponse" title="pyclerk.response_formats.APIResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.response_formats.APIResponse</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyclerk.response_formats.TextBody">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.response_formats.</code><code class="sig-name descname">TextBody</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.response_formats.TextBody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyclerk.response_formats.APIResponse" title="pyclerk.response_formats.APIResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.response_formats.APIResponse</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="pyclerk.response_formats.XMLBody">
+<em class="property">class </em><code class="sig-prename descclassname">pyclerk.response_formats.</code><code class="sig-name descname">XMLBody</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyclerk.response_formats.XMLBody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyclerk.response_formats.APIResponse" title="pyclerk.response_formats.APIResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyclerk.response_formats.APIResponse</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyclerk">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyclerk" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

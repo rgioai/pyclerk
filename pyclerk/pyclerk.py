@@ -12,9 +12,13 @@ from .endpoints.ngrams import NgramsEndpoint
 from .endpoints.reporters import ReportersEndpoint
 from .endpoints.user_history import UserHistoryEndpoint
 from .endpoints.volumes import VolumesEndpoint
+from .endpoints._endpoint import Endpoint
 
 # TODO Test packaging and downloading from PyPi test
 
+# TODO Finish the high-level Sphinx file documentation
+
+# TODO Troubleshoot sphinx and RTD for stability
 """
 PyClerk package master file contains the master class.  Recommended to invoke all classes and methods through
 the PyClerk() class.
@@ -42,6 +46,7 @@ class PyClerk(object):
         # self.reporters = ReportersEndpoint(self.access_token, self.api_version, master_body_format)
         # self.user_history = UserHistoryEndpoint(self.access_token, self.api_version, master_body_format)
         # self.volumes = VolumesEndpoint(self.access_token, self.api_version, master_body_format)
+        self.custom_endpoint = Endpoint(self.access_token, self.api_version, master_body_format)
         # FUTURE Uncomment other endpoints as they are implemented
 
         self.set_master_body_format(master_body_format)
